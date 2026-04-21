@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nocturne Watch · Juego</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="game.js" defer></script>
+</head>
+<body class="game-page">
+  <div class="noise-layer"></div>
+  <div class="scanlines"></div>
+
+  <header class="hud">
+    <div class="hud-item">
+      <span class="hud-label">HORA</span>
+      <span id="timeDisplay" class="hud-value">12 AM</span>
+    </div>
+
+    <div class="hud-item hud-wide">
+      <span class="hud-label">ESTADO</span>
+      <span id="eventLog" class="hud-value small">
+        Sistema listo. Monitorea las cámaras.
+      </span>
+    </div>
+
+    <div class="hud-item">
+      <span class="hud-label">SONIDO</span>
+      <span id="cooldownText" class="hud-value small">Listo</span>
+    </div>
+  </header>
+
+  <main class="game-shell">
+    <section class="office-stage">
+      <div class="office-card">
+        <p class="office-tag">OFICINA</p>
+        <h2>Resiste en silencio</h2>
+        <p>
+          La entidad avanza por las cámaras y busca llegar aquí.
+          Cambia de cámara, lanza sonidos y aguanta hasta las 6 AM.
+        </p>
+
+        <div class="survival-bar">
+          <div id="progressBar" class="survival-fill"></div>
+        </div>
+
+        <div class="office-note">
+          Consejo: no gastes el sonido todo el tiempo. Tiene cooldown.
+        </div>
+      </div>
+    </section>
+
+    <aside class="cam-panel">
+      <div id="cameraFrame" class="camera-frame">
+        <div class="camera-topbar">
+          <span id="cameraLabel">CAM 1</span>
+          <span class="live-dot">● LIVE</span>
+        </div>
+
+        <img id="cameraImage" alt="Vista de cámara" />
+        <div class="camera-static"></div>
+      </div>
+
+      <div class="cam-buttons">
+        <button data-cam="1" class="cam-btn active">Cam 1</button>
+        <button data-cam="2" class="cam-btn">Cam 2</button>
+        <button data-cam="3" class="cam-btn">Cam 3</button>
+        <button data-cam="4" class="cam-btn">Cam 4</button>
+      </div>
+
+      <button id="soundBtn" class="sound-btn">EMITIR SONIDO</button>
+    </aside>
+  </main>
+
+  <div id="overlay" class="overlay hidden">
+    <div class="overlay-card">
+      <h2 id="overlayTitle">GAME OVER</h2>
+      <p id="overlayText">La entidad llegó a la oficina.</p>
+      <div class="overlay-actions">
+        <button id="restartBtn" class="btn btn-primary">REINTENTAR</button>
+        <a class="btn btn-ghost" href="index.html">MENÚ</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
